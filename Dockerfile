@@ -16,7 +16,7 @@ FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 
 COPY --from=builder /workspace/project .
-COPY --from=builder --chown=65532:65532 /workspace /credentials
+COPY --from=builder --chown=65532:65532 /workspace/credentials /credentials
 
 USER nonroot:nonroot
 
