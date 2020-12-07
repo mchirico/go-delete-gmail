@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: delete-gmail
+spec:
+  schedule: "5 9,13,18,21 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: gmaildelete
+            image: gcr.io/septapig/go-delete-gmail:test
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
